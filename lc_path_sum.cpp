@@ -11,17 +11,23 @@
  */
 class Solution {
 public:
-    bool hasPathSum(TreeNode* root, int sum) {
-        if(root==NULL) return 0;
-        else{
-            bool ans=0;
-            int subsum=sum-root->val;
-            if(subsum==0 && root->left==NULL && root->right==NULL) return 1;
-            if(root->left)
-                ans=ans || hasPathSum(root->left,subsum);
-            if(root->right)
-                ans=ans || hasPathSum(root->right,subsum);
-            return ans;
-        }
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string> res;
+        if (root == NULL) return res;
+        dfs(root, to_string(root->val), res);
+        return res;
     }
+
+    void dfs(TreeNode* root, string path, vector<string>& res) {
+        if (root->left == NULL && root->right == NULL) {
+            res.push_back(path);
+        }
+
+        if (root->left != NULL)
+            dfs(root->left, path + "->" + to_string(root->left->val), res);
+
+        if (root->right != NULL)
+            dfs(root->right, path + "->" + to_string(root->right->val), res);
+    }
+
 };
