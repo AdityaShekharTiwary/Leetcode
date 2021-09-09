@@ -17,6 +17,7 @@ public:
     }
 };
 
+
 /**
  * Your TopVotedCandidate object will be instantiated and called as such:
  * TopVotedCandidate* obj = new TopVotedCandidate(persons, times);
