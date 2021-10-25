@@ -8,6 +8,7 @@ public:
         }
         return a.size() < b.size();
     }
+    
     string kthLargestNumber(vector<string>& nums, int k)
     {
         sort(nums.begin(), nums.end(), cmp);
