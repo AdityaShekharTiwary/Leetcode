@@ -20,6 +20,7 @@ public:
         }
         return true;
     }
+    
 
     bool bipartiteDFS(vector<vector<int>>& graph, vector<int> &color, int node) {
         if (color[node] == -1) color[node] = 1;
